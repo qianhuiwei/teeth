@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/teeth/static/css/main.6fa55957.css",
+    "main.js": "/teeth/static/js/main.a5185be2.js",
+    "index.html": "/teeth/index.html",
+    "main.6fa55957.css.map": "/teeth/static/css/main.6fa55957.css.map",
+    "main.a5185be2.js.map": "/teeth/static/js/main.a5185be2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6fa55957.css",
+    "static/js/main.a5185be2.js"
+  ]
+}
