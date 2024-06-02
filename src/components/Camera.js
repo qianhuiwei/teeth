@@ -10,6 +10,12 @@ import { useRef } from 'react';
 // if so, jump to the next page
 
 function Camera() {
+    const [switchCamera, setSwitchCamera] = useState(false);
+    
+    const videoConstraints = {
+        facingMode: switchCamera ? { exact: "environment" } : "user" 
+      };
+
     const picsData = [
         { id: 0, src: "", active: true },
         { id: 1, src: "", active: false },
@@ -20,13 +26,17 @@ function Camera() {
     const [pics, setPics] = useState(picsData);
     const webcamRef = useRef(null);
 
+    const flipCamera = () => {
+        setSwitchCamera(!switchCamera);
+    }
+
     // find the pic by id and update its active status
     const updateActive = (id) => {
         const updatedPics = pics.map((pic) => {
             if (pic.id === id) {
-                return {...pic, active: true};
+                return { ...pic, active: true };
             } else {
-                return {...pic, active: false};
+                return { ...pic, active: false };
             }
         });
         setPics(updatedPics);
@@ -35,10 +45,10 @@ function Camera() {
     // update the active pic
     const updatePic = () => {
         const newSrc = webcamRef.current.getScreenshot();
-        
+
         const updatedPics = pics.map((pic) => {
             if (pic.active) {
-                return {...pic, src: newSrc};
+                return { ...pic, src: newSrc };
             }
             return pic;
         });
@@ -54,19 +64,19 @@ function Camera() {
 
         const updatedPics = pics.map((pic) => {
             if (pic.active) {
-                return {...pic, src: newSrc};
+                return { ...pic, src: newSrc };
             }
             return pic;
         });
-        setPics(updatedPics);        
+        setPics(updatedPics);
     }
 
     return (
         <div>
-            <div style={{display: "flex", marginBottom:"40px"}}>
-                <div style={{margin:"8px", borderBottom:"2px solid blue"}}>個人資料</div>
-                <div style={{margin:"8px", borderBottom:"2px solid blue"}}>關於您的笑容問題</div>
-                <div style={{margin:"8px", borderBottom:"2px solid lightblue"}}>微笑預約</div>
+            <div style={{ display: "flex", marginBottom: "40px" }}>
+                <div style={{ margin: "8px", borderBottom: "2px solid blue" }}>個人資料</div>
+                <div style={{ margin: "8px", borderBottom: "2px solid blue" }}>關於您的笑容問題</div>
+                <div style={{ margin: "8px", borderBottom: "2px solid lightblue" }}>微笑預約</div>
             </div>
 
             <ReactQrCode value={window.location.href} />
@@ -77,12 +87,15 @@ function Camera() {
                     screenshotFormat="image/jpeg"
                     height={500}
                     width={570}
+                    videoConstraints={videoConstraints}
                 />
             </div>
-            <div className='imgContainer'>
+
+            <div style={{width:"600px", height:"200px"}}>
                 {renderedPics}
             </div>
             <button onClick={updatePic}>Capture photo</button>
+            <button onClick={flipCamera}>Front Camera</button>
             <input type="file" onChange={handleChange} />
         </ div>
     );

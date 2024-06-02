@@ -9,6 +9,12 @@ function App() {
     return (
         <div>
             <Routes>
+                <Route path="/" element={<Form />} />
+                <Route path="/questions" element={<Questions />} />
+                <Route path="/camera" element={<Camera />} />
+                <Route path="/allset" element={<AllSet />} />
+            </Routes>
+            {/* <Routes>
                 <Route
                     exact
                     path="/"
@@ -37,7 +43,7 @@ function App() {
                         <AllSet />
                     }
                 />
-            </Routes>
+            </Routes> */}
         </div>
     );
 }
