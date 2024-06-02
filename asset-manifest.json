@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/teeth/static/css/main.6fa55957.css",
-    "main.js": "/teeth/static/js/main.fdf155e7.js",
+    "main.js": "/teeth/static/js/main.bcf831f9.js",
     "index.html": "/teeth/index.html",
     "main.6fa55957.css.map": "/teeth/static/css/main.6fa55957.css.map",
-    "main.fdf155e7.js.map": "/teeth/static/js/main.fdf155e7.js.map"
+    "main.bcf831f9.js.map": "/teeth/static/js/main.bcf831f9.js.map"
   },
   "entrypoints": [
     "static/css/main.6fa55957.css",
-    "static/js/main.fdf155e7.js"
+    "static/js/main.bcf831f9.js"
   ]
 }
